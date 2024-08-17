@@ -101,17 +101,17 @@ button:hover {
 footer {
     background-color: #333;
     color: white;
+    padding: 20px;
     text-align: center;
-    padding: 30px 20px;
-    margin-top: 40px;
 }
 
 .footer-section {
-    margin-bottom: 20px;
+    padding: 20px 0;
+    border-bottom: 1px solid #444; /* Oddělení sekcí linkou */
 }
 
 .footer-section:last-child {
-    margin-bottom: 0;
+    border-bottom: none; /* Odstranění linky u poslední sekce */
 }
 
 footer h4 {
@@ -130,4 +130,5 @@ footer a {
 footer a:hover {
     text-decoration: underline;
 }
+
 
