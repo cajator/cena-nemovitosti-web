@@ -14,21 +14,21 @@
     </header>
     <main>
         <section id="form-section">
-            <h2>Vyplňte krátký formulář</h2>
-            <form id="estimate-form" name="estimate" method="POST" data-netlify="true">
-            <form id="estimate-form">
-                <input type="text" name="name" placeholder="Vaše jméno" required>
-                <input type="email" name="email" placeholder="Váš e-mail" required>
-                <input type="tel" name="phone" placeholder="Telefonní číslo" required>
-                <select name="property-type" required>
-                    <option value="">Typ nemovitosti</option>
-                    <option value="byt">Byt</option>
-                    <option value="dum">Dům</option>
-                    <option value="pozemek">Pozemek</option>
-                </select>
-                <input type="text" name="location" placeholder="Lokalita" required>
-                <button type="submit">Získat odhad zdarma</button>
-            </form>
+          <h2>Vyplňte krátký formulář</h2>
+          <form id="estimate-form" name="estimate" method="POST" data-netlify="true">
+            <input type="hidden" name="form-name" value="estimate">
+            <input type="text" name="name" placeholder="Vaše jméno" required>
+            <input type="email" name="email" placeholder="Váš e-mail" required>
+            <input type="tel" name="phone" placeholder="Telefonní číslo" required>
+            <select name="property-type" required>
+              <option value="">Typ nemovitosti</option>
+              <option value="byt">Byt</option>
+              <option value="dum">Dům</option>
+              <option value="pozemek">Pozemek</option>
+            </select>
+            <input type="text" name="location" placeholder="Lokalita" required>
+            <button type="submit">Získat odhad zdarma</button>
+          </form>
         </section>
         <section id="benefits">
             <h2>Proč využít naše služby?</h2>
