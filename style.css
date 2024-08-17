@@ -58,31 +58,6 @@ button:hover {
     left: 0;
     color: #4CAF50;
 }
-/* Stylování referencí */
-#references {
-    background-color: #f9f9f9;
-    padding: 20px;
-    margin-top: 20px;
-}
-#references h2 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-.reference {
-    margin-bottom: 20px;
-    padding: 10px;
-    border-left: 4px solid #007BFF;
-    background-color: #ffffff;
-}
-.reference blockquote {
-    font-style: italic;
-    margin: 0;
-}
-.reference p {
-    margin-top: 5px;
-    text-align: right;
-    font-weight: bold;
-}
 
 /* Stylování pro patičku */
 footer {
