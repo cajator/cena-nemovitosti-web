@@ -67,30 +67,25 @@ footer {
     text-align: center;
 }
 
-.footer-content {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 20px;
-    flex-wrap: wrap; /* Umožní lepší zobrazení na menších obrazovkách */
-    border-bottom: 1px solid #444; /* Oddělí sekce od spodního copyrightu */
-    padding-bottom: 20px;
+footer div {
+    margin-bottom: 20px; /* Mezera mezi sekcemi */
+    padding: 10px 0;
+    border-bottom: 1px solid #444; /* Oddělení sekcí tenkou linkou */
 }
 
-.contact-info, .legal-info {
-    flex: 1;
-    margin: 10px;
-    padding: 10px;
-    background-color: #444; /* Odděluje každou sekci vizuálně */
-    border-radius: 5px;
+footer div:last-child {
+    border-bottom: none; /* Odstranění spodní linky u poslední sekce */
+    margin-bottom: 0;
 }
 
-.copyright {
-    margin-top: 20px;
-    font-size: 0.9em;
-    color: #aaa;
+footer h4 {
+    margin-bottom: 10px;
 }
 
-/* Stylování odkazů v patičce */
+footer p {
+    margin: 5px 0;
+}
+
 footer a {
     color: #007BFF;
     text-decoration: none;
@@ -99,7 +94,4 @@ footer a {
 footer a:hover {
     text-decoration: underline;
 }
-
-
-
 
