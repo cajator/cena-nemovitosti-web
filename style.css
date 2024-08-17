@@ -4,6 +4,12 @@ body {
     color: #333; /* Nastav stejnou barvu textu */
     background-color: #f4f4f4; /* Nastav stejnou barvu pozadí */
 }
+/* Kontejner pro omezení šířky a centrování obsahu */
+.container {
+    max-width: 900px; /* Maximální šířka kontejneru je nyní 900px */
+    margin: 0 auto; /* Centrovat kontejner */
+    padding: 0 20px; /* Vnitřní okraj pro malé obrazovky */
+}
 /* Úpravy pro ostatní prvky */
 header, main, footer {
     margin-bottom: 20px; /* Oddělení sekcí */
