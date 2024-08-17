@@ -59,37 +59,6 @@ button:hover {
     color: #4CAF50;
 }
 
-footer {
-    text-align: center;
-    padding: 1rem;
-    background-color: #f4f4f4;
-}
-/* Stylování referencí */
-#references {
-    background-color: #f9f9f9;
-    padding: 20px;
-    margin-top: 20px;
-}
-#references h2 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-.reference {
-    margin-bottom: 20px;
-    padding: 10px;
-    border-left: 4px solid #007BFF;
-    background-color: #ffffff;
-}
-.reference blockquote {
-    font-style: italic;
-    margin: 0;
-}
-.reference p {
-    margin-top: 5px;
-    text-align: right;
-    font-weight: bold;
-}
-
 /* Stylování pro patičku */
 footer {
     background-color: #333;
@@ -102,12 +71,17 @@ footer {
     display: flex;
     justify-content: space-around;
     margin-bottom: 20px;
-    flex-wrap: wrap; /* Přidáno pro lepší zobrazení na menších obrazovkách */
+    flex-wrap: wrap; /* Umožní lepší zobrazení na menších obrazovkách */
+    border-bottom: 1px solid #444; /* Oddělí sekce od spodního copyrightu */
+    padding-bottom: 20px;
 }
 
 .contact-info, .legal-info {
     flex: 1;
     margin: 10px;
+    padding: 10px;
+    background-color: #444; /* Odděluje každou sekci vizuálně */
+    border-radius: 5px;
 }
 
 .copyright {
@@ -125,6 +99,7 @@ footer a {
 footer a:hover {
     text-decoration: underline;
 }
+
 
 
 
