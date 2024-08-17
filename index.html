@@ -46,5 +46,22 @@
         <p>&copy; 2024 Cena-nemovitosti.cz. Všechna práva vyhrazena.</p>
     </footer>
     <script src="script.js"></script>
+    <script>
+  document.querySelector('#estimate-form').addEventListener('submit', e => {
+    e.preventDefault();
+    const form = e.target;
+    fetch('/', {
+      method: 'POST',
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(new FormData(form)).toString()
+    }).then(() => {
+      console.log('Form successfully submitted');
+      alert('Formulář byl úspěšně odeslán!');
+    }).catch((error) => {
+      console.error('Error:', error);
+      alert('Došlo k chybě při odesílání formuláře.');
+    });
+  });
+</script>
 </body>
 </html>
