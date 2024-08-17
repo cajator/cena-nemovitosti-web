@@ -90,30 +90,33 @@ footer {
     font-weight: bold;
 }
 
-/* Oprava stylování pro patičku */
+/* Stylování pro patičku */
 footer {
     background-color: #333;
     color: white;
     padding: 20px;
-    display: flex;
-    flex-direction: column; /* Přidáno, aby byly bloky nad sebou */
-    align-items: center;
     text-align: center;
-    position: relative;
-    bottom: 0;
-    width: 100%;
 }
 
-.contact-info, .legal-info, .copyright {
-    margin: 10px 0;
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    flex-wrap: wrap; /* Přidáno pro lepší zobrazení na menších obrazovkách */
 }
 
-.copyright p {
-    margin-top: 10px;
+.contact-info, .legal-info {
+    flex: 1;
+    margin: 10px;
+}
+
+.copyright {
+    margin-top: 20px;
     font-size: 0.9em;
     color: #aaa;
 }
 
+/* Stylování odkazů v patičce */
 footer a {
     color: #007BFF;
     text-decoration: none;
