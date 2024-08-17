@@ -1,4 +1,9 @@
 /* Globální styly */
+.container {
+    max-width: 1200px; /* Maximální šířka kontejneru */
+    margin: 0 auto; /* Centrovat kontejner */
+    padding: 0 20px; /* Vnitřní okraj pro malé obrazovky */
+}
 body {
     font-family: "Arial", sans-serif; /* Použij stejný font, který používá zbytek webu */
     color: #333; /* Nastav stejnou barvu textu */
