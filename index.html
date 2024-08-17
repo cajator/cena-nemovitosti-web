@@ -13,23 +13,26 @@
         <p>Profesionální odhad zdarma do 24 hodin</p>
     </header>
     <main>
-        <section id="form-section">
-          <h2>Vyplňte krátký formulář</h2>
-          <form id="estimate-form" name="estimate" method="POST" data-netlify="true">
-            <input type="hidden" name="form-name" value="estimate">
-            <input type="text" name="name" placeholder="Vaše jméno" required>
-            <input type="email" name="email" placeholder="Váš e-mail" required>
-            <input type="tel" name="phone" placeholder="Telefonní číslo" required>
-            <select name="property-type" required>
-              <option value="">Typ nemovitosti</option>
-              <option value="byt">Byt</option>
-              <option value="dum">Dům</option>
-              <option value="pozemek">Pozemek</option>
-            </select>
-            <input type="text" name="location" placeholder="Lokalita" required>
-            <button type="submit">Získat odhad zdarma</button>
-          </form>
-        </section>
+        <main>
+          <section id="form-section">
+            <h2>Vyplňte krátký formulář</h2>
+            <form id='estimate-form' method='POST' name='estimate' data-netlify="true" data-netlify-honeypot="bot-field">
+              <input type="hidden" name="form-name" value="estimate">
+              <input type="hidden" name="bot-field">
+              <input type="text" name="name" placeholder="Vaše jméno" required>
+              <input type="email" name="email" placeholder="Váš e-mail" required>
+              <input type="tel" name="phone" placeholder="Telefonní číslo" required>
+              <select name="property-type" required>
+                <option value="">Typ nemovitosti</option>
+                <option value="byt">Byt</option>
+                <option value="dum">Dům</option>
+                <option value="pozemek">Pozemek</option>
+              </select>
+              <input type="text" name="location" placeholder="Lokalita" required>
+              <button type="submit">Získat odhad zdarma</button>
+            </form>
+          </section>
+        </main>
         <section id="benefits">
             <h2>Proč využít naše služby?</h2>
             <ul>
