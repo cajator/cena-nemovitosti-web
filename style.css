@@ -1,9 +1,10 @@
+/* Globální styly */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    color: #333;
+    background-color: #f4f4f4;
 }
 
 header {
@@ -59,22 +60,57 @@ button:hover {
     color: #4CAF50;
 }
 
-/* Stylování pro patičku */
+/* Sekce s referencemi */
+#references {
+    background-color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+    margin-top: 20px;
+    border-top: 1px solid #ddd;
+}
+
+#references h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.reference {
+    margin-bottom: 20px;
+    padding: 20px;
+    border-left: 4px solid #007BFF;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    display: inline-block;
+    width: 80%;
+    max-width: 600px;
+}
+
+.reference blockquote {
+    font-style: italic;
+    margin: 0;
+}
+
+.reference p {
+    margin-top: 10px;
+    text-align: right;
+    font-weight: bold;
+}
+
+/* Patička */
 footer {
     background-color: #333;
     color: white;
-    padding: 20px;
     text-align: center;
+    padding: 30px 20px;
+    margin-top: 40px;
 }
 
-footer div {
-    margin-bottom: 20px; /* Mezera mezi sekcemi */
-    padding: 10px 0;
-    border-bottom: 1px solid #444; /* Oddělení sekcí tenkou linkou */
+.footer-section {
+    margin-bottom: 20px;
 }
 
-footer div:last-child {
-    border-bottom: none; /* Odstranění spodní linky u poslední sekce */
+.footer-section:last-child {
     margin-bottom: 0;
 }
 
