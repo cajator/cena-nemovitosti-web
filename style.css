@@ -1,45 +1,50 @@
 /* Globální styly */
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
+    font-family: "Arial", sans-serif; /* Použij stejný font, který používá zbytek webu */
+    color: #333; /* Nastav stejnou barvu textu */
+    background-color: #f4f4f4; /* Nastav stejnou barvu pozadí */
 }
-
 header {
-    background-color: #4CAF50;
-    color: white;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 20px 0;
     text-align: center;
-    padding: 1rem;
 }
 
 main {
-    padding: 2rem;
-    max-width: 800px;
-    margin: 0 auto;
+    background-color: #ffffff; /* Barva pozadí hlavního obsahu */
+    color: #333; /* Barva textu v hlavním obsahu */
+    padding: 20px;
 }
 
 form {
-    display: flex;
-    flex-direction: column;
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #f9f9f9; /* Barva pozadí formuláře */
+    border: 1px solid #ddd; /* Ohraničení formuláře */
 }
 
 input, select, button {
-    margin-bottom: 1rem;
-    padding: 0.5rem;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc; /* Ohraničení vstupních polí */
+    border-radius: 5px; /* Zaoblení rohů */
+    font-size: 1em;
 }
 
 button {
-    background-color: #4CAF50;
-    color: white;
+    background-color: #007BFF; /* Barva pozadí tlačítka */
+    color: white; /* Barva textu tlačítka */
     border: none;
     cursor: pointer;
-    padding: 0.8rem;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1em;
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #0056b3;
 }
 
 #benefits ul {
