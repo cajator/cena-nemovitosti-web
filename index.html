@@ -6,7 +6,7 @@
     <title>Zjistěte cenu své nemovitosti | Cena-nemovitosti.cz</title>
     <meta name="description" content="Získejte přesný odhad ceny vaší nemovitosti zdarma. Profesionální služby pro byty, domy i pozemky.">
     <link rel="stylesheet" href="style.css">
-    <script src="https://www.google.com/recaptcha/api.js?render=6LdhbykqAAAAAKlALERO-kQnOASg0U7AOKJCHnX3"></script>
+    <script src="https://www.google.com/recaptcha/api.js?render=VAS_SKUTECNY_SITE_KEY"></script>
 </head>
 <body>
     <div class="container">
@@ -17,7 +17,7 @@
     <main>
         <section id="form-section">
             <h2>Vyplňte krátký formulář</h2>
-            <form id='estimate-form'>
+            <form id='estimate-form' name='estimate'>
                 <input type="text" name="name" placeholder="Vaše jméno" required>
                 <input type="email" name="email" placeholder="Váš e-mail" required>
                 <input type="tel" name="phone" placeholder="Telefonní číslo" required>
@@ -30,7 +30,7 @@
                 <input type="text" name="location" placeholder="Lokalita" required>
                 <div>
                     <input type="checkbox" id="gdpr-consent" name="gdpr-consent" required>
-                    <label for="gdpr-consent">Souhlasím se zpracováním osobních údajů dle GDPR</label>
+                    <label for="gdpr-consent">Souhlasím se <a href="/gdpr-policy.html" target="_blank">zpracováním osobních údajů dle GDPR</a></label>
                 </div>
                 <button type="submit">Získat odhad zdarma</button>
             </form>
@@ -39,7 +39,6 @@
                 <p>Váš požadavek byl úspěšně odeslán. Budeme vás kontaktovat do 24 hodin.</p>
             </div>
         </section>
-
         <section id="benefits">
             <h2>Proč využít naše služby?</h2>
             <ul>
@@ -49,7 +48,6 @@
                 <li>100% diskrétnost a bezpečnost vašich údajů</li>
             </ul>
         </section>
-
         <!-- Sekce s referencemi -->
         <section id="references">
             <h2>Co říkají naši klienti</h2>
@@ -67,7 +65,6 @@
             </div>
         </section>
     </main>
-
     <footer>
         <div class="footer-section contact-info">
             <h4>Kontaktujte nás</h4>
@@ -77,7 +74,7 @@
         </div>
         <div class="footer-section legal-info">
             <h4>Právní informace</h4>
-            <p><a href="#">Zásady ochrany osobních údajů</a></p>
+            <p><a href="/gdpr-policy.html">Zásady ochrany osobních údajů</a></p>
             <p><a href="#">Podmínky použití</a></p>
         </div>
         <div class="footer-section copyright">
@@ -89,8 +86,9 @@
     <script>
     document.getElementById('estimate-form').addEventListener('submit', function(event) {
         event.preventDefault();
+        
         grecaptcha.ready(function() {
-            grecaptcha.execute('6LdhbykqAAAAAKlALERO-kQnOASg0U7AOKJCHnX3', {action: 'submit'}).then(function(token) {
+            grecaptcha.execute('VAS_SKUTECNY_SITE_KEY', {action: 'submit'}).then(function(token) {
                 const form = event.target;
                 const data = {
                     name: form.name.value,
@@ -104,7 +102,7 @@
                 fetch('/.netlify/functions/sendEmail', {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json',
                     },
                     body: JSON.stringify(data)
                 })
@@ -114,12 +112,12 @@
                         document.getElementById('estimate-form').style.display = 'none';
                         document.getElementById('success-message').style.display = 'block';
                     } else {
-                        alert('Došlo k chybě při odesílání formuláře.');
+                        alert('Došlo k chybě při odesílání formuláře: ' + (data.error || 'Neznámá chyba'));
                     }
                 })
                 .catch(error => {
                     console.error('Error:', error);
-                    alert('Došlo k chybě při odesílání formuláře.');
+                    alert('Došlo k chybě při odesílání formuláře: ' + error.message);
                 });
             });
         });
