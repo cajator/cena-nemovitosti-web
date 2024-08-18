@@ -1,23 +1,35 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('estimate-form');
-    
-    form.addEventListener('submit', function(e) {
-        e.preventDefault(); // Zabrání standardnímu odeslání formuláře
-        
-        // Získání hodnot z formuláře
-        const name = form.elements['name'].value;
-        const email = form.elements['email'].value;
-        const phone = form.elements['phone'].value;
-        const propertyType = form.elements['property-type'].value;
-        const location = form.elements['location'].value;
-        
-        // Zde by normálně byla logika pro odeslání dat na server
-        // Pro demonstraci použijeme console.log a alert
-        console.log('Odeslaná data:', { name, email, phone, propertyType, location });
-        
-        alert(`Děkujeme za váš zájem, ${name}! Budeme vás kontaktovat na ${email} nebo ${phone} ohledně vašeho ${propertyType} v lokalitě ${location}.`);
-        
-        // Vyčištění formuláře
-        form.reset();
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('estimateForm');
+    const result = document.getElementById('result');
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        // Získání tokenu reCAPTCHA
+        const recaptchaToken = await grecaptcha.execute('RECAPTCHA_SITE_KEY', {action: 'submit'});
+
+        // Získání dat z formuláře
+        const formData = new FormData(form);
+        formData.append('recaptchaToken', recaptchaToken);
+
+        try {
+            const response = await fetch('/.netlify/functions/sendEmail', {
+                method: 'POST',
+                body: JSON.stringify(Object.fromEntries(formData)),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                form.style.display = 'none';
+                result.style.display = 'block';
+            } else {
+                throw new Error('Chyba při odesílání formuláře');
+            }
+        } catch (error) {
+            console.error('Chyba:', error);
+            alert('Došlo k chybě při odesílání formuláře. Zkuste to prosím znovu.');
+        }
     });
 });
