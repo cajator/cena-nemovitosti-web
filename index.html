@@ -17,7 +17,7 @@
         <main>
           <section id="form-section">
             <h2>Vyplňte krátký formulář</h2>
-            <form id='estimate-form' name='estimate' onsubmit="submitForm(event)">
+            <form id='-form' name='' onsubmit="submitForm(event)">
               <input type="text" name="name" placeholder="Vaše jméno" required>
               <input type="email" name="email" placeholder="Váš e-mail" required>
               <input type="tel" name="phone" placeholder="Telefonní číslo" required>
@@ -31,6 +31,7 @@
               <button type="submit">Získat odhad zdarma</button>
             </form>
           </section>
+        <script>
         <script>
         function submitForm(event) {
           event.preventDefault();
@@ -70,7 +71,7 @@
     </main>
     <script src="script.js"></script>
     <script>
-  document.querySelector('#estimate-form').addEventListener('submit', e => {
+  document.querySelector('#-form').addEventListener('submit', e => {
     e.preventDefault();
     const form = e.target;
     fetch('/', {
