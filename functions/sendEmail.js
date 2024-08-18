@@ -30,6 +30,18 @@ exports.handler = async (event, context) => {
           reject(err);
         });
       });
+      } catch (error) {
+        console.error('Detailní chyba:', error);
+        return {
+          statusCode: 500,
+          body: JSON.stringify({ 
+            success: false,
+            error: "Chyba při odesílání e-mailu", 
+            details: error.message,
+            stack: error.stack
+          })
+        };
+      }
     };
 
     const recaptchaVerify = await verifyRecaptcha();
