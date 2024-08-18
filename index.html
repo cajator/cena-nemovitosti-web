@@ -6,7 +6,6 @@
     <title>Zjistěte cenu své nemovitosti | Cena-nemovitosti.cz</title>
     <meta name="description" content="Získejte přesný odhad ceny vaší nemovitosti zdarma. Profesionální služby pro byty, domy i pozemky.">
     <link rel="stylesheet" href="style.css">
-    <!-- Přidejte tento řádek pro načtení reCAPTCHA -->
     <script src="https://www.google.com/recaptcha/api.js?render=6LdhbykqAAAAAKlALERO-kQnOASg0U7AOKJCHnX3"></script>
 </head>
 <body>
@@ -29,20 +28,46 @@
                     <option value="pozemek">Pozemek</option>
                 </select>
                 <input type="text" name="location" placeholder="Lokalita" required>
-                <!-- Přidejte toto políčko pro GDPR souhlas -->
                 <div>
                     <input type="checkbox" id="gdpr-consent" name="gdpr-consent" required>
                     <label for="gdpr-consent">Souhlasím se zpracováním osobních údajů dle GDPR</label>
                 </div>
                 <button type="submit">Získat odhad zdarma</button>
             </form>
-            <!-- Přidejte tento div pro zobrazení potvrzovací zprávy -->
             <div id="success-message" style="display: none;">
                 <h2>Děkujeme za váš zájem!</h2>
                 <p>Váš požadavek byl úspěšně odeslán. Budeme vás kontaktovat do 24 hodin.</p>
             </div>
         </section>
+
+        <section id="benefits">
+            <h2>Proč využít naše služby?</h2>
+            <ul>
+                <li>Přesný odhad na základě aktuálních dat</li>
+                <li>Zkušení realitní odborníci</li>
+                <li>Rychlá odpověď do 24 hodin</li>
+                <li>100% diskrétnost a bezpečnost vašich údajů</li>
+            </ul>
+        </section>
+
+        <!-- Sekce s referencemi -->
+        <section id="references">
+            <h2>Co říkají naši klienti</h2>
+            <div class="reference">
+                <blockquote>
+                    "Služba byla rychlá a velmi profesionální. Odhad ceny nemovitosti mi pomohl rozhodnout se o prodeji."
+                </blockquote>
+                <p>- Jana Nováková, Praha</p>
+            </div>
+            <div class="reference">
+                <blockquote>
+                    "Velmi rychlé jednání a přesný odhad. Doporučuji všem, kteří potřebují rychle zjistit hodnotu své nemovitosti."
+                </blockquote>
+                <p>- Petr Svoboda, Brno</p>
+            </div>
+        </section>
     </main>
+
     <footer>
         <div class="footer-section contact-info">
             <h4>Kontaktujte nás</h4>
