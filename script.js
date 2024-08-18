@@ -36,3 +36,28 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+fetch('/.netlify/functions/sendEmail', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data)
+})
+.then(response => {
+    if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return response.json();
+})
+.then(data => {
+    if (data.success) {
+        form.style.display = 'none';
+        document.getElementById('success-message').style.display = 'block';
+    } else {
+        throw new Error(data.error || data.details || 'Neznámá chyba');
+    }
+})
+.catch(error => {
+    console.error('Detailní chyba:', error);
+    alert('Došlo k chybě při odesílání formuláře: ' + error.message);
+});
