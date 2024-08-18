@@ -1,5 +1,5 @@
 const nodemailer = require('nodemailer');
-const axios = require('axios');
+const https = require('https');
 
 exports.handler = async (event, context) => {
   console.log('Funkce sendEmail byla vyvolána');
@@ -14,11 +14,27 @@ exports.handler = async (event, context) => {
     console.log('Data přijata:', { name, email, phone, propertyType, location });
 
     // Ověření reCAPTCHA
-    const recaptchaVerify = await axios.post(
-      `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${recaptchaToken}`
-    );
+    const verifyRecaptcha = () => {
+      return new Promise((resolve, reject) => {
+        const recaptchaVerifyUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${recaptchaToken}`;
+        
+        https.get(recaptchaVerifyUrl, (res) => {
+          let data = '';
+          res.on('data', (chunk) => {
+            data += chunk;
+          });
+          res.on('end', () => {
+            resolve(JSON.parse(data));
+          });
+        }).on('error', (err) => {
+          reject(err);
+        });
+      });
+    };
 
-    if (!recaptchaVerify.data.success) {
+    const recaptchaVerify = await verifyRecaptcha();
+
+    if (!recaptchaVerify.success) {
       console.error('reCAPTCHA verification failed');
       return {
         statusCode: 400,
