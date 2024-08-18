@@ -147,3 +147,70 @@ footer a:hover {
 }
 
 
+/* CSS styly pro přidání do vašeho existujícího style.css souboru */
+
+.gdpr-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+.top-nav {
+    margin-bottom: 20px;
+}
+
+.back-button {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.back-button:hover {
+    background-color: #0056b3;
+}
+
+.gdpr-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.gdpr-header h1 {
+    color: #333;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.gdpr-content {
+    text-align: justify;
+}
+
+.gdpr-content section {
+    margin-bottom: 30px;
+}
+
+.gdpr-content h2 {
+    color: #007bff;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.gdpr-content ul {
+    padding-left: 20px;
+}
+
+.gdpr-footer {
+    margin-top: 40px;
+    text-align: center;
+    color: #666;
+    font-size: 0.9em;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+}
