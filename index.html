@@ -90,7 +90,7 @@
     function submitForm(event) {
         event.preventDefault();
         grecaptcha.ready(function() {
-            grecaptcha.execute('VAS_SKUTECNY_SITE_KEY', {action: 'submit'}).then(function(token) {
+            grecaptcha.execute('6LdhbykqAAAAAKlALERO-kQnOASg0U7AOKJCHnX3', {action: 'submit'}).then(function(token) {
                 const form = event.target;
                 const data = {
                     name: form.name.value,
