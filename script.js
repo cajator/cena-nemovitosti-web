@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('estimateForm');
+    const formContainer = document.getElementById('formContainer');
     const result = document.getElementById('result');
 
     form.addEventListener('submit', async (e) => {
@@ -22,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             if (response.ok) {
-                form.style.display = 'none';
+                formContainer.style.display = 'none';
                 result.style.display = 'block';
             } else {
                 throw new Error('Chyba při odesílání formuláře');
