@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
 
         // Získání tokenu reCAPTCHA
-        const recaptchaToken = await grecaptcha.execute('RECAPTCHA_SITE_KEY', {action: 'submit'});
+        const recaptchaToken = await grecaptcha.execute('6LdhbykqAAAAAKlALERO-kQnOASg0U7AOKJCHnX3', {action: 'submit'});
 
         // Získání dat z formuláře
         const formData = new FormData(form);
