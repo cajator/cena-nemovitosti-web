@@ -107,18 +107,18 @@
                     body: JSON.stringify(data)
                 })
                 .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
+             .then(data => {
+                 if (data.success) {
                         document.getElementById('estimate-form').style.display = 'none';
                         document.getElementById('success-message').style.display = 'block';
-                    } else {
-                        alert('Došlo k chybě při odesílání formuláře: ' + (data.error || 'Neznámá chyba'));
-                    }
+                 } else {
+                        alert('Došlo k chybě při odesílání formuláře: ' + (data.error || '') + ' ' + (data.details || ''));
+                }
                 })
                 .catch(error => {
-                    console.error('Error:', error);
-                    alert('Došlo k chybě při odesílání formuláře: ' + error.message);
-                });
+                console.error('Error:', error);
+                alert('Došlo k chybě při odesílání formuláře: ' + error.message);
+            });
             });
         });
     });
