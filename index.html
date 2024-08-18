@@ -32,8 +32,7 @@
                     <input type="checkbox" id="gdpr-consent" name="gdpr-consent" required>
                     <label for="gdpr-consent">Souhlasím se <a href="/gdpr-policy.html" target="_blank">zpracováním osobních údajů dle GDPR</a></label>
                 </div>
-                <div class="g-recaptcha" data-sitekey="6LdhbykqAAAAAKlALERO-kQnOASg0U7AOKJCHnX3"></div>
-                <button type="submit">Získat odhad zdarma</button>
+              <button type="submit">Získat odhad zdarma</button>
             </form>
             <div id="success-message" style="display: none;">
                 <h2>Děkujeme za váš zájem!</h2>
@@ -46,43 +45,41 @@
     </div>
 
     <script>
-    document.getElementById('estimate-form').addEventListener('submit', function(event) {
-        event.preventDefault();
-        
-        var response = grecaptcha.getResponse();
-        if(response.length == 0) {
-            alert('Prosím, potvrďte, že nejste robot.');
-            return false;
-        }
-        
-        const form = event.target;
-        const data = {
-            name: form.name.value,
-            email: form.email.value,
-            phone: form.phone.value,
-            propertyType: form['property-type'].value,
-            location: form.location.value,
-            recaptchaToken: response
-        };
+document.getElementById('estimate-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    grecaptcha.ready(function() {
+        grecaptcha.execute('VAS_SKUTECNY_SITE_KEY', {action: 'submit'}).then(function(token) {
+            const form = event.target;
+            const data = {
+                name: form.name.value,
+                email: form.email.value,
+                phone: form.phone.value,
+                propertyType: form['property-type'].value,
+                location: form.location.value,
+                recaptchaToken: token
+            };
 
-        fetch('/.netlify/functions/sendEmail', {
-            method: 'POST',
-            body: JSON.stringify(data)
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                document.getElementById('estimate-form').style.display = 'none';
-                document.getElementById('success-message').style.display = 'block';
-            } else {
+            fetch('/.netlify/functions/sendEmail', {
+                method: 'POST',
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    document.getElementById('estimate-form').style.display = 'none';
+                    document.getElementById('success-message').style.display = 'block';
+                } else {
+                    alert('Došlo k chybě při odesílání formuláře.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
                 alert('Došlo k chybě při odesílání formuláře.');
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('Došlo k chybě při odesílání formuláře.');
+            });
         });
     });
+});
     </script>
 </body>
 </html>
