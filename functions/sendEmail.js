@@ -16,7 +16,7 @@ exports.handler = async (event, context) => {
     // Ověření reCAPTCHA
     const verifyRecaptcha = () => {
       return new Promise((resolve, reject) => {
-        const recaptchaVerifyUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${recaptchaToken}`;
+        const recaptchaVerifyUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.6LdhbykqAAAAAINdzG3QTWxxVoWNseZYKlwz9rPY}&response=${recaptchaToken}`;
         
         https.get(recaptchaVerifyUrl, (res) => {
           let data = '';
