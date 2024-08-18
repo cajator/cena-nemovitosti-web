@@ -5,46 +5,18 @@ exports.handler = async (event, context) => {
   console.log('Funkce sendEmail byla vyvolána');
 
   if (event.httpMethod !== 'POST') {
+    console.log('Neplatná HTTP metoda');
     return { statusCode: 405, body: JSON.stringify({ error: 'Method Not Allowed' }) };
   }
 
   try {
     const { name, email, phone, propertyType, location, recaptchaToken } = JSON.parse(event.body);
-
     console.log('Data přijata:', { name, email, phone, propertyType, location });
 
     // Ověření reCAPTCHA
-    const verifyRecaptcha = () => {
-      return new Promise((resolve, reject) => {
-        const recaptchaVerifyUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.6LdhbykqAAAAAINdzG3QTWxxVoWNseZYKlwz9rPY}&response=${recaptchaToken}`;
-        
-        https.get(recaptchaVerifyUrl, (res) => {
-          let data = '';
-          res.on('data', (chunk) => {
-            data += chunk;
-          });
-          res.on('end', () => {
-            resolve(JSON.parse(data));
-          });
-        }).on('error', (err) => {
-          reject(err);
-        });
-      });
-      } catch (error) {
-        console.error('Detailní chyba:', error);
-        return {
-          statusCode: 500,
-          body: JSON.stringify({ 
-            success: false,
-            error: "Chyba při odesílání e-mailu", 
-            details: error.message,
-            stack: error.stack
-          })
-        };
-      }
-    };
-
-    const recaptchaVerify = await verifyRecaptcha();
+    console.log('Začíná ověření reCAPTCHA');
+    const recaptchaVerify = await verifyRecaptcha(recaptchaToken);
+    console.log('Výsledek ověření reCAPTCHA:', recaptchaVerify);
 
     if (!recaptchaVerify.success) {
       console.error('reCAPTCHA verification failed');
@@ -54,8 +26,7 @@ exports.handler = async (event, context) => {
       };
     }
 
-    console.log('reCAPTCHA ověřena');
-
+    console.log('reCAPTCHA ověřena, vytváření transporteru');
     let transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
@@ -64,8 +35,7 @@ exports.handler = async (event, context) => {
       }
     });
 
-    console.log('Transporter vytvořen');
-
+    console.log('Transporter vytvořen, odesílání e-mailu');
     await transporter.sendMail({
       from: process.env.GMAIL_USER,
       to: process.env.GMAIL_USER,
@@ -73,8 +43,7 @@ exports.handler = async (event, context) => {
       text: `Jméno: ${name}\nEmail: ${email}\nTelefon: ${phone}\nTyp nemovitosti: ${propertyType}\nLokalita: ${location}`
     });
 
-    console.log('E-mail odeslán');
-
+    console.log('E-mail odeslán úspěšně');
     return {
       statusCode: 200,
       body: JSON.stringify({ success: true, message: "E-mail odeslán úspěšně" })
@@ -86,8 +55,27 @@ exports.handler = async (event, context) => {
       body: JSON.stringify({ 
         success: false,
         error: "Chyba při odesílání e-mailu", 
-        details: error.message
+        details: error.message,
+        stack: error.stack
       })
     };
   }
 };
+
+function verifyRecaptcha(token) {
+  return new Promise((resolve, reject) => {
+    const recaptchaVerifyUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${token}`;
+    
+    https.get(recaptchaVerifyUrl, (res) => {
+      let data = '';
+      res.on('data', (chunk) => {
+        data += chunk;
+      });
+      res.on('end', () => {
+        resolve(JSON.parse(data));
+      });
+    }).on('error', (err) => {
+      reject(err);
+    });
+  });
+}
