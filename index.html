@@ -12,34 +12,37 @@
         <h1>Odhad ceny nemovitostí</h1>
     </header>
     <main>
-        <form id="estimateForm">
-            <label for="propertyType">Typ nemovitosti:</label>
-            <select id="propertyType" name="propertyType" required>
-                <option value="">Vyberte typ nemovitosti</option>
-                <option value="apartment">Byt</option>
-                <option value="house">Dům</option>
-                <option value="land">Pozemek</option>
-            </select>
+        <div id="formContainer">
+            <h2>Vyplňte krátký formulář</h2>
+            <form id="estimateForm">
+                <label for="propertyType">Typ nemovitosti:</label>
+                <select id="propertyType" name="propertyType" required>
+                    <option value="">Vyberte typ nemovitosti</option>
+                    <option value="apartment">Byt</option>
+                    <option value="house">Dům</option>
+                    <option value="land">Pozemek</option>
+                </select>
 
-            <label for="area">Plocha (m²):</label>
-            <input type="number" id="area" name="area" required>
+                <label for="area">Plocha (m²):</label>
+                <input type="number" id="area" name="area" required>
 
-            <label for="location">Lokalita:</label>
-            <input type="text" id="location" name="location" required>
+                <label for="location">Lokalita:</label>
+                <input type="text" id="location" name="location" required>
 
-            <label for="email">E-mail:</label>
-            <input type="email" id="email" name="email" required>
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required>
 
-            <div class="gdpr-consent">
-                <input type="checkbox" id="gdprConsent" name="gdprConsent" required>
-                <label for="gdprConsent">Souhlasím se zpracováním osobních údajů dle <a href="gdpr-policy.html" target="_blank">podmínek GDPR</a></label>
-            </div>
+                <div class="gdpr-consent">
+                    <input type="checkbox" id="gdprConsent" name="gdprConsent" required>
+                    <label for="gdprConsent">Souhlasím se zpracováním osobních údajů dle <a href="gdpr-policy.html" target="_blank">podmínek GDPR</a></label>
+                </div>
 
-            <button type="submit">Získat odhad</button>
-        </form>
+                <button type="submit">Získat odhad</button>
+            </form>
+        </div>
         <div id="result" style="display: none;">
             <h2>Děkujeme za váš zájem!</h2>
-            <p>Váš požadavek na odhad ceny nemovitosti byl úspěšně odeslán. Brzy vás budeme kontaktovat na zadanou e-mailovou adresu.</p>
+            <p>Váš požadavek byl úspěšně odeslán. Budeme vás kontaktovat do 24 hodin.</p>
         </div>
     </main>
     <footer>
