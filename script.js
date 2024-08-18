@@ -45,7 +45,9 @@ fetch('/.netlify/functions/sendEmail', {
 })
 .then(response => {
     if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        return response.text().then(text => {
+            throw new Error(`HTTP error! status: ${response.status}, body: ${text}`);
+        });
     }
     return response.json();
 })
@@ -57,6 +59,10 @@ fetch('/.netlify/functions/sendEmail', {
         throw new Error(data.error || data.details || 'Neznámá chyba');
     }
 })
+.catch(error => {
+    console.error('Detailní chyba:', error);
+    alert('Došlo k chybě při odesílání formuláře: ' + error.message);
+});
 .catch(error => {
     console.error('Detailní chyba:', error);
     alert('Došlo k chybě při odesílání formuláře: ' + error.message);
