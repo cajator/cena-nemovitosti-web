@@ -17,7 +17,7 @@
         <main>
           <section id="form-section">
             <h2>Vyplňte krátký formulář</h2>
-            <form id='-form' name='' onsubmit="submitForm(event)">
+              <form id='estimate-form' name='estimate' onsubmit="submitForm(event)">
               <input type="text" name="name" placeholder="Vaše jméno" required>
               <input type="email" name="email" placeholder="Váš e-mail" required>
               <input type="tel" name="phone" placeholder="Telefonní číslo" required>
@@ -30,19 +30,34 @@
               <input type="text" name="location" placeholder="Lokalita" required>
               <button type="submit">Získat odhad zdarma</button>
             </form>
-          </section>
-        <script>
-        <script>
-        function submitForm(event) {
-          event.preventDefault();
-          const form = event.target;
-          const data = {
-            name: form.name.value,
-            email: form.email.value,
-            phone: form.phone.value,
-            propertyType: form.propertyType.value,
-            location: form.location.value
-          };
+            
+            <script>
+            function submitForm(event) {
+              event.preventDefault();
+              const form = event.target;
+              const data = {
+                name: form.name.value,
+                email: form.email.value,
+                phone: form.phone.value,
+                propertyType: form.propertyType.value,
+                location: form.location.value
+              };
+            
+              fetch('/.netlify/functions/sendEmail', {
+                method: 'POST',
+                body: JSON.stringify(data)
+              })
+              .then(response => response.json())
+              .then(data => {
+                alert('Formulář byl úspěšně odeslán!');
+                form.reset();
+              })
+              .catch(error => {
+                console.error('Error:', error);
+                alert('Došlo k chybě při odesílání formuláře.');
+              });
+            }
+            </script>
         
           fetch('/.netlify/functions/sendEmail', {
             method: 'POST',
