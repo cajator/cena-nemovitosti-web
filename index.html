@@ -14,67 +14,23 @@
         <p>Profesionální odhad zdarma do 24 hodin</p>
     </header>
     <main>
-        <main>
-          <section id="form-section">
+        <section id="form-section">
             <h2>Vyplňte krátký formulář</h2>
-              <form id='estimate-form' name='estimate' onsubmit="submitForm(event)">
-              <input type="text" name="name" placeholder="Vaše jméno" required>
-              <input type="email" name="email" placeholder="Váš e-mail" required>
-              <input type="tel" name="phone" placeholder="Telefonní číslo" required>
-              <select name="property-type" required>
-                <option value="">Typ nemovitosti</option>
-                <option value="byt">Byt</option>
-                <option value="dum">Dům</option>
-                <option value="pozemek">Pozemek</option>
-              </select>
-              <input type="text" name="location" placeholder="Lokalita" required>
-              <button type="submit">Získat odhad zdarma</button>
+            <form id='estimate-form' name='estimate' onsubmit="submitForm(event)">
+                <input type="text" name="name" placeholder="Vaše jméno" required>
+                <input type="email" name="email" placeholder="Váš e-mail" required>
+                <input type="tel" name="phone" placeholder="Telefonní číslo" required>
+                <select name="property-type" required>
+                    <option value="">Typ nemovitosti</option>
+                    <option value="byt">Byt</option>
+                    <option value="dum">Dům</option>
+                    <option value="pozemek">Pozemek</option>
+                </select>
+                <input type="text" name="location" placeholder="Lokalita" required>
+                <button type="submit">Získat odhad zdarma</button>
             </form>
-            
-            <script>
-            function submitForm(event) {
-              event.preventDefault();
-              const form = event.target;
-              const data = {
-                name: form.name.value,
-                email: form.email.value,
-                phone: form.phone.value,
-                propertyType: form.propertyType.value,
-                location: form.location.value
-              };
-            
-              fetch('/.netlify/functions/sendEmail', {
-                method: 'POST',
-                body: JSON.stringify(data)
-              })
-              .then(response => response.json())
-              .then(data => {
-                alert('Formulář byl úspěšně odeslán!');
-                form.reset();
-              })
-              .catch(error => {
-                console.error('Error:', error);
-                alert('Došlo k chybě při odesílání formuláře.');
-              });
-            }
-            </script>
-        
-          fetch('/.netlify/functions/sendEmail', {
-            method: 'POST',
-            body: JSON.stringify(data)
-          })
-          .then(response => response.json())
-          .then(data => {
-            alert('Formulář byl úspěšně odeslán!');
-            form.reset();
-          })
-          .catch(error => {
-            console.error('Error:', error);
-            alert('Došlo k chybě při odesílání formuláře.');
-          });
-        }
-        </script>
-            <section id="benefits">
+        </section>
+        <section id="benefits">
             <h2>Proč využít naše služby?</h2>
             <ul>
                 <li>Přesný odhad na základě aktuálních dat</li>
@@ -83,58 +39,68 @@
                 <li>100% diskrétnost a bezpečnost vašich údajů</li>
             </ul>
         </section>
+        <!-- Sekce s referencemi -->
+        <section id="references">
+            <h2>Co říkají naši klienti</h2>
+            <div class="reference">
+                <blockquote>
+                    "Služba byla rychlá a velmi profesionální. Odhad ceny nemovitosti mi pomohl rozhodnout se o prodeji."
+                </blockquote>
+                <p>- Jana Nováková, Praha</p>
+            </div>
+            <div class="reference">
+                <blockquote>
+                    "Velmi rychlé jednání a přesný odhad. Doporučuji všem, kteří potřebují rychle zjistit hodnotu své nemovitosti."
+                </blockquote>
+                <p>- Petr Svoboda, Brno</p>
+            </div>
+        </section>
     </main>
-    <script src="script.js"></script>
+    <!-- Patička -->
+    <footer>
+        <div class="footer-section contact-info">
+            <h4>Kontaktujte nás</h4>
+            <p>Email: info@cena-nemovitosti.cz</p>
+            <p>Telefon: +420 123 456 789</p>
+            <p>Adresa: Ulice 123, 100 00 Praha</p>
+        </div>
+        <div class="footer-section legal-info">
+            <h4>Právní informace</h4>
+            <p><a href="#">Zásady ochrany osobních údajů</a></p>
+            <p><a href="#">Podmínky použití</a></p>
+        </div>
+        <div class="footer-section copyright">
+            <p>© 2024 Cena-nemovitosti.cz. Všechna práva vyhrazena.</p>
+        </div>
+    </footer>
+    </div>
+
     <script>
-  document.querySelector('#-form').addEventListener('submit', e => {
-    e.preventDefault();
-    const form = e.target;
-    fetch('/', {
-      method: 'POST',
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(new FormData(form)).toString()
-    }).then(() => {
-      console.log('Form successfully submitted');
-      alert('Formulář byl úspěšně odeslán!');
-    }).catch((error) => {
-      console.error('Error:', error);
-      alert('Došlo k chybě při odesílání formuláře.');
-    });
-  });
-</script>
-<!-- Sekce s referencemi -->
-<section id="references">
-    <h2>Co říkají naši klienti</h2>
-    <div class="reference">
-        <blockquote>
-            "Služba byla rychlá a velmi profesionální. Odhad ceny nemovitosti mi pomohl rozhodnout se o prodeji."
-        </blockquote>
-        <p>- Jana Nováková, Praha</p>
-    </div>
-    <div class="reference">
-        <blockquote>
-            "Velmi rychlé jednání a přesný odhad. Doporučuji všem, kteří potřebují rychle zjistit hodnotu své nemovitosti."
-        </blockquote>
-        <p>- Petr Svoboda, Brno</p>
-    </div>
-</section>
-<!-- Patička -->
-<footer>
-    <div class="footer-section contact-info">
-        <h4>Kontaktujte nás</h4>
-        <p>Email: info@cena-nemovitosti.cz</p>
-        <p>Telefon: +420 123 456 789</p>
-        <p>Adresa: Ulice 123, 100 00 Praha</p>
-    </div>
-    <div class="footer-section legal-info">
-        <h4>Právní informace</h4>
-        <p><a href="https://cena-nemovitosti.netlify.app/#">Zásady ochrany osobních údajů</a></p>
-        <p><a href="https://cena-nemovitosti.netlify.app/#">Podmínky použití</a></p>
-    </div>
-    <div class="footer-section copyright">
-        <p>© 2024 Cena-nemovitosti.cz. Všechna práva vyhrazena.</p>
-    </div>
-</footer>
-</div>
+    function submitForm(event) {
+        event.preventDefault();
+        const form = event.target;
+        const data = {
+            name: form.name.value,
+            email: form.email.value,
+            phone: form.phone.value,
+            propertyType: form['property-type'].value,
+            location: form.location.value
+        };
+
+        fetch('/.netlify/functions/sendEmail', {
+            method: 'POST',
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert('Formulář byl úspěšně odeslán!');
+            form.reset();
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Došlo k chybě při odesílání formuláře.');
+        });
+    }
+    </script>
 </body>
 </html>
