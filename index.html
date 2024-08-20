@@ -10,15 +10,15 @@
     <script src="script.js" defer></script>
 </head>
 <body>
+    <nav id="main-menu">
+        <ul>
+            <li><a href="index.html">Odhad ceny nemovitosti</a></li>
+            <li><a href="pruvodce-prodejem.html">Průvodce prodejem</a></li>
+            <li><a href="zasady-ochrany-osobnich-udaju.html">Zásady ochrany osobních údajů</a></li>
+            <li><a href="podminky-pouziti.html">Podmínky použití</a></li>
+        </ul>
+    </nav>
     <div class="container">
-        <nav id="main-menu">
-            <ul>
-                <li><a href="index.html">Odhad ceny nemovitosti</a></li>
-                <li><a href="pruvodce-prodejem.html">Průvodce prodejem</a></li>
-                <li><a href="gdpr-policy.html">Zásady ochrany osobních údajů</a></li>
-                <li><a href="podminky-pouziti.html">Podmínky použití</a></li>
-            </ul>
-        </nav>
         <header>
             <h1>Zjistěte skutečnou hodnotu vaší nemovitosti</h1>
             <p>Profesionální odhad ceny bytů, domů a pozemků zdarma</p>
@@ -38,7 +38,7 @@
                     <input type="email" id="user-email" name="user-email" placeholder="Váš e-mail" required>
                     <div class="gdpr-consent">
                         <input type="checkbox" id="gdpr-consent" name="gdpr-consent" required>
-                        <label for="gdpr-consent">Souhlasím se zpracováním osobních údajů dle <a href="gdpr-policy.html">zásad ochrany osobních údajů</a>.</label>
+                        <label for="gdpr-consent">Souhlasím se zpracováním osobních údajů dle <a href="zasady-ochrany-osobnich-udaju.html">zásad ochrany osobních údajů</a>.</label>
                     </div>
                     <button type="submit">Získat odhad zdarma</button>
                 </form>
@@ -66,13 +66,15 @@
                 </div>
             </section>
         </main>
-        <footer>
+    </div>
+    <footer>
+        <div class="footer-content">
             <div class="footer-section">
                 <h4>Rychlé odkazy</h4>
                 <ul>
                     <li><a href="index.html">Domů</a></li>
                     <li><a href="pruvodce-prodejem.html">Průvodce prodejem</a></li>
-                    <li><a href="gdpr-policy.html">Ochrana osobních údajů</a></li>
+                    <li><a href="zasady-ochrany-osobnich-udaju.html">Ochrana osobních údajů</a></li>
                     <li><a href="podminky-pouziti.html">Podmínky použití</a></li>
                 </ul>
             </div>
@@ -81,10 +83,10 @@
                 <p>Email: info@cena-nemovitosti.cz</p>
                 <p>Telefon: +420 123 456 789</p>
             </div>
-            <div class="footer-section">
-                <p>&copy; 2024 Cena-nemovitosti.cz. Všechna práva vyhrazena.</p>
-            </div>
-        </footer>
-    </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Cena-nemovitosti.cz. Všechna práva vyhrazena.</p>
+        </div>
+    </footer>
 </body>
 </html>
