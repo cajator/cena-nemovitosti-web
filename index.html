@@ -11,7 +11,6 @@
 </head>
 <body>
     <div class="container">
-        <div class="container">
         <nav id="main-menu">
             <ul>
                 <li><a href="index.html">Odhad ceny nemovitosti</a></li>
@@ -21,85 +20,71 @@
             </ul>
         </nav>
         <header>
-            <h1>Zjistěte skutečnou cenu vaší nemovitosti</h1>
-            <p>Profesionální odhad zdarma do 24 hodin</p>
+            <h1>Zjistěte skutečnou hodnotu vaší nemovitosti</h1>
+            <p>Profesionální odhad ceny bytů, domů a pozemků zdarma</p>
         </header>
         <main>
-            <section id="form-section">
-                <h2>Vyplňte krátký formulář</h2>
-                <form id='estimate-form' name='estimate'>
-                    <input type="text" name="name" placeholder="Vaše jméno" required>
-                    <input type="email" name="email" placeholder="Váš e-mail" required>
-                    <input type="tel" name="phone" placeholder="Telefonní číslo" required>
-                    <select name="property-type" required>
-                        <option value="">Typ nemovitosti</option>
-                        <option value="byt">Byt</option>
-                        <option value="dum">Dům</option>
-                        <option value="pozemek">Pozemek</option>
+            <section id="estimate-form">
+                <h2>Získejte odhad ceny vaší nemovitosti</h2>
+                <form id="property-form">
+                    <select id="property-type" name="property-type" required>
+                        <option value="">Vyberte typ nemovitosti</option>
+                        <option value="apartment">Byt</option>
+                        <option value="house">Dům</option>
+                        <option value="land">Pozemek</option>
                     </select>
-                    <input type="text" name="location" placeholder="Lokalita" required>
-                    <div>
+                    <input type="number" id="property-size" name="property-size" placeholder="Velikost v m²" required>
+                    <input type="text" id="property-location" name="property-location" placeholder="Lokalita (město, čtvrť)" required>
+                    <input type="email" id="user-email" name="user-email" placeholder="Váš e-mail" required>
+                    <div class="gdpr-consent">
                         <input type="checkbox" id="gdpr-consent" name="gdpr-consent" required>
-                        <label for="gdpr-consent">Souhlasím se <a href="/gdpr-policy.html" target="_blank">zpracováním osobních údajů dle GDPR</a></label>
+                        <label for="gdpr-consent">Souhlasím se zpracováním osobních údajů dle <a href="gdpr-policy.html">zásad ochrany osobních údajů</a>.</label>
                     </div>
                     <button type="submit">Získat odhad zdarma</button>
                 </form>
-                <div id="success-message" style="display: none;">
-                    <h2>Děkujeme za váš zájem!</h2>
-                    <p>Váš požadavek byl úspěšně odeslán. Budeme vás kontaktovat do 24 hodin.</p>
-                </div>
             </section>
             <section id="benefits">
                 <h2>Proč využít naše služby?</h2>
                 <ul>
-                    <li>Přesný odhad na základě aktuálních dat</li>
-                    <li>Zkušení realitní odborníci</li>
-                    <li>Rychlá odpověď do 24 hodin</li>
-                    <li>100% diskrétnost a bezpečnost vašich údajů</li>
+                    <li>Přesné odhady založené na aktuálních tržních datech</li>
+                    <li>Zdarma a bez závazků</li>
+                    <li>Rychlé zpracování během několika minut</li>
+                    <li>Profesionální tým s letitými zkušenostmi</li>
+                    <li>Pokrytí celé České republiky</li>
+                    <li>Pravidelně aktualizovaná databáze cen nemovitostí</li>
                 </ul>
             </section>
             <section id="references">
-                <h2>Co říkají naši klienti</h2>
+                <h2>Co o nás říkají klienti</h2>
                 <div class="reference">
-                    <blockquote>
-                        "Služba byla rychlá a velmi profesionální. Odhad ceny nemovitosti mi pomohl rozhodnout se o prodeji."
-                    </blockquote>
-                    <p>- Jana Nováková, Praha</p>
+                    <blockquote>"Díky Cena-nemovitosti.cz jsem získal reálnou představu o ceně svého bytu. Profesionální přístup a rychlé jednání."</blockquote>
+                    <p>- Jan Novák, Praha</p>
                 </div>
                 <div class="reference">
-                    <blockquote>
-                        "Velmi rychlé jednání a přesný odhad. Doporučuji všem, kteří potřebují rychle zjistit hodnotu své nemovitosti."
-                    </blockquote>
-                    <p>- Petr Svoboda, Brno</p>
+                    <blockquote>"Skvělá služba! Odhad mi pomohl při vyjednávání s realitní kanceláří a ušetřil spoustu času."</blockquote>
+                    <p>- Marie Svobodová, Brno</p>
                 </div>
             </section>
         </main>
-<footer>
-    <div class="footer-container">
-        <div class="footer-section">
-            <h4>O nás</h4>
-            <p>Jsme experti na odhad cen nemovitostí. Naším cílem je poskytnout vám přesné a aktuální informace o hodnotě vaší nemovitosti.</p>
-        </div>
-        <div class="footer-section">
-            <h4>Rychlé odkazy</h4>
-            <ul>
-                <li><a href="index.html">Domů</a></li>
-                <li><a href="pruvodce-prodejem.html">Průvodce prodejem</a></li>
-                <li><a href="gdpr-policy.html">Ochrana osobních údajů</a></li>
-                <li><a href="podminky-pouziti.html">Podmínky použití</a></li>
-            </ul>
-        </div>
-        <div class="footer-section">
-            <h4>Kontakt</h4>
-            <p>Email: info@cena-nemovitosti.cz</p>
-            <p>Telefon: +420 123 456 789</p>
-            <p>Adresa: Hlavní 123, 110 00 Praha</p>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <p>&copy; 2024 Cena-nemovitosti.cz. Všechna práva vyhrazena.</p>
-    </div>
-</footer>
+        <footer>
+            <div class="footer-section">
+                <h4>Rychlé odkazy</h4>
+                <ul>
+                    <li><a href="index.html">Domů</a></li>
+                    <li><a href="pruvodce-prodejem.html">Průvodce prodejem</a></li>
+                    <li><a href="gdpr-policy.html">Ochrana osobních údajů</a></li>
+                    <li><a href="podminky-pouziti.html">Podmínky použití</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Kontakt</h4>
+                <p>Email: info@cena-nemovitosti.cz</p>
+                <p>Telefon: +420 123 456 789</p>
+            </div>
+            <div class="footer-section">
+                <p>&copy; 2024 Cena-nemovitosti.cz. Všechna práva vyhrazena.</p>
+            </div>
+        </footer>
     </div>
 </body>
 </html>
