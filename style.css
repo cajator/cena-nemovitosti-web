@@ -149,32 +149,105 @@ button:hover {
     max-width: 600px;
 }
 
-/* Patička */
-.gdpr-footer, footer {
-    margin-top: 40px;
+/* Sekce "Proč využít naše služby?" */
+#benefits {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+#benefits h2 {
+    color: #007bff;
     text-align: center;
-    color: #666;
-    font-size: 0.9em;
-    border-top: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+#benefits ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#benefits li {
+    flex-basis: calc(50% - 10px);
+    margin-bottom: 15px;
+    padding-left: 30px;
+    position: relative;
+}
+
+#benefits li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+/* Patička */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 40px 0;
+    margin-top: 40px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-section {
+    flex-basis: calc(33.333% - 20px);
+    margin-bottom: 20px;
+}
+
+.footer-section h4 {
+    color: #007bff;
+    margin-bottom: 15px;
+}
+
+.footer-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section a:hover {
+    color: #007bff;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
     padding-top: 20px;
+    border-top: 1px solid #555;
 }
 
 /* Responzivní design */
 @media (max-width: 768px) {
-    #main-menu ul {
-        flex-direction: column;
-        align-items: center;
+    #benefits li {
+        flex-basis: 100%;
     }
 
-    #main-menu li {
-        margin: 10px 0;
-    }
-
-    .container, .gdpr-container {
-        padding: 10px;
-    }
-
-    .reference {
-        width: 90%;
+    .footer-section {
+        flex-basis: 100%;
     }
 }
+
