@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('estimate-form');
-    const successMessage = document.getElementById('success-message');
+    const form = document.querySelector('form');
+    const formData = new FormData(form);
     
     if (form) {
         form.addEventListener('submit', async (e) => {
