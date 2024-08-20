@@ -10,42 +10,61 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <nav id="main-menu">
-        <ul>
-            <li><a href="index.html">Odhad ceny nemovitosti</a></li>
-            <li><a href="pruvodce-prodejem.html">Průvodce prodejem</a></li>
-            <li><a href="zasady-ochrany-osobnich-udaju.html">Zásady ochrany osobních údajů</a></li>
-            <li><a href="podminky-pouziti.html">Podmínky použití</a></li>
-        </ul>
-    </nav>
-    <div class="container">
-        <header>
-            <h1>Zjistěte skutečnou hodnotu vaší nemovitosti</h1>
-            <p>Profesionální odhad ceny bytů, domů a pozemků zdarma</p>
-        </header>
-        <main>
-            <section id="estimate-form">
+    <header class="site-header">
+        <div class="container">
+            <nav id="main-menu">
+                <ul>
+                    <li><a href="index.html">Odhad ceny nemovitosti</a></li>
+                    <li><a href="pruvodce-prodejem.html">Průvodce prodejem</a></li>
+                    <li><a href="gdpr-policy.html">Zásady ochrany osobních údajů</a></li>
+                    <li><a href="podminky-pouziti.html">Podmínky použití</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Zjistěte skutečnou hodnotu vaší nemovitosti</h1>
+                <p>Profesionální odhad ceny bytů, domů a pozemků zdarma</p>
+            </div>
+        </section>
+
+        <section id="estimate-form" class="form-section">
+            <div class="container">
                 <h2>Získejte odhad ceny vaší nemovitosti</h2>
                 <form id="property-form">
-                    <select id="property-type" name="property-type" required>
-                        <option value="">Vyberte typ nemovitosti</option>
-                        <option value="apartment">Byt</option>
-                        <option value="house">Dům</option>
-                        <option value="land">Pozemek</option>
-                    </select>
-                    <input type="number" id="property-size" name="property-size" placeholder="Velikost v m²" required>
-                    <input type="text" id="property-location" name="property-location" placeholder="Lokalita (město, čtvrť)" required>
-                    <input type="email" id="user-email" name="user-email" placeholder="Váš e-mail" required>
-                    <div class="gdpr-consent">
+                    <div class="form-group">
+                        <select id="property-type" name="property-type" required>
+                            <option value="">Vyberte typ nemovitosti</option>
+                            <option value="apartment">Byt</option>
+                            <option value="house">Dům</option>
+                            <option value="land">Pozemek</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" id="property-size" name="property-size" placeholder="Velikost v m²" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="property-location" name="property-location" placeholder="Lokalita (město, čtvrť)" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="user-email" name="user-email" placeholder="Váš e-mail" required>
+                    </div>
+                    <div class="form-group gdpr-consent">
                         <input type="checkbox" id="gdpr-consent" name="gdpr-consent" required>
                         <label for="gdpr-consent">Souhlasím se zpracováním osobních údajů dle <a href="zasady-ochrany-osobnich-udaju.html">zásad ochrany osobních údajů</a>.</label>
                     </div>
-                    <button type="submit">Získat odhad zdarma</button>
+                    <button type="submit" class="btn-primary">Získat odhad zdarma</button>
                 </form>
-            </section>
-            <section id="benefits">
+            </div>
+        </section>
+
+        <section id="benefits" class="benefits-section">
+            <div class="container">
                 <h2>Proč využít naše služby?</h2>
-                <ul>
+                <ul class="benefits-list">
                     <li>Přesné odhady založené na aktuálních tržních datech</li>
                     <li>Zdarma a bez závazků</li>
                     <li>Rychlé zpracování během několika minut</li>
@@ -53,39 +72,47 @@
                     <li>Pokrytí celé České republiky</li>
                     <li>Pravidelně aktualizovaná databáze cen nemovitostí</li>
                 </ul>
-            </section>
-            <section id="references">
+            </div>
+        </section>
+
+        <section id="references" class="references-section">
+            <div class="container">
                 <h2>Co o nás říkají klienti</h2>
-                <div class="reference">
-                    <blockquote>"Díky Cena-nemovitosti.cz jsem získal reálnou představu o ceně svého bytu. Profesionální přístup a rychlé jednání."</blockquote>
-                    <p>- Jan Novák, Praha</p>
+                <div class="references-grid">
+                    <div class="reference">
+                        <blockquote>"Díky Cena-nemovitosti.cz jsem získal reálnou představu o ceně svého bytu. Profesionální přístup a rychlé jednání."</blockquote>
+                        <p class="reference-author">- Jan Novák, Praha</p>
+                    </div>
+                    <div class="reference">
+                        <blockquote>"Skvělá služba! Odhad mi pomohl při vyjednávání s realitní kanceláří a ušetřil spoustu času."</blockquote>
+                        <p class="reference-author">- Marie Svobodová, Brno</p>
+                    </div>
                 </div>
-                <div class="reference">
-                    <blockquote>"Skvělá služba! Odhad mi pomohl při vyjednávání s realitní kanceláří a ušetřil spoustu času."</blockquote>
-                    <p>- Marie Svobodová, Brno</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Rychlé odkazy</h4>
+                    <ul>
+                        <li><a href="index.html">Domů</a></li>
+                        <li><a href="pruvodce-prodejem.html">Průvodce prodejem</a></li>
+                        <li><a href="zasady-ochrany-osobnich-udaju.html">Ochrana osobních údajů</a></li>
+                        <li><a href="podminky-pouziti.html">Podmínky použití</a></li>
+                    </ul>
                 </div>
-            </section>
-        </main>
-    </div>
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>Rychlé odkazy</h4>
-                <ul>
-                    <li><a href="index.html">Domů</a></li>
-                    <li><a href="pruvodce-prodejem.html">Průvodce prodejem</a></li>
-                    <li><a href="zasady-ochrany-osobnich-udaju.html">Ochrana osobních údajů</a></li>
-                    <li><a href="podminky-pouziti.html">Podmínky použití</a></li>
-                </ul>
+                <div class="footer-section">
+                    <h4>Kontakt</h4>
+                    <p>Email: info@cena-nemovitosti.cz</p>
+                    <p>Telefon: +420 123 456 789</p>
+                </div>
             </div>
-            <div class="footer-section">
-                <h4>Kontakt</h4>
-                <p>Email: info@cena-nemovitosti.cz</p>
-                <p>Telefon: +420 123 456 789</p>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Cena-nemovitosti.cz. Všechna práva vyhrazena.</p>
             </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Cena-nemovitosti.cz. Všechna práva vyhrazena.</p>
         </div>
     </footer>
 </body>
