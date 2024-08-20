@@ -2,16 +2,17 @@
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    color: #333;
-    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
+    background-color: #f0f0f0;
 }
 
 .container {
-    max-width: 1100px;
+    max-width: 800px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
 /* Hlavní menu */
@@ -36,18 +37,12 @@ body {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-#main-menu a:hover {
-    color: #e6f2ff;
 }
 
 /* Hlavička */
 header {
-    background-color: #ffffff;
-    padding: 40px 0;
     text-align: center;
+    margin-bottom: 30px;
 }
 
 header h1 {
@@ -55,38 +50,22 @@ header h1 {
     margin-bottom: 10px;
 }
 
-/* Hlavní obsah */
-main {
-    background-color: #ffffff;
-    padding: 40px 0;
-}
-
-section {
-    margin-bottom: 40px;
-}
-
-h2 {
-    color: #007bff;
-    border-bottom: 2px solid #007bff;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-}
-
 /* Formulář */
-form {
+#estimate-form {
     background-color: #f9f9f9;
     padding: 20px;
     border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="number"],
-select {
-    width: 100%;
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+select, input, button {
+    margin-bottom: 10px;
     padding: 10px;
-    margin-bottom: 15px;
     border: 1px solid #ddd;
     border-radius: 4px;
 }
@@ -94,23 +73,21 @@ select {
 button {
     background-color: #007bff;
     color: white;
-    padding: 10px 20px;
     border: none;
-    border-radius: 4px;
     cursor: pointer;
-    font-size: 16px;
 }
 
 button:hover {
     background-color: #0056b3;
 }
 
+.gdpr-consent {
+    margin-bottom: 10px;
+}
+
 /* Sekce "Proč využít naše služby?" */
 #benefits {
-    background-color: #f9f9f9;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
 }
 
 #benefits ul {
@@ -129,42 +106,42 @@ button:hover {
     position: absolute;
     left: 0;
     color: #007bff;
-    font-weight: bold;
 }
 
 /* Reference */
 #references {
-    text-align: center;
+    margin-bottom: 30px;
 }
 
 .reference {
     background-color: #f9f9f9;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
 }
 
 .reference blockquote {
     font-style: italic;
-    margin-bottom: 10px;
+    margin: 0 0 10px 0;
 }
 
 /* Patička */
 footer {
     background-color: #333;
-    color: #fff;
+    color: white;
     padding: 20px 0;
-    margin-top: 40px;
 }
 
-.footer-section {
-    margin-bottom: 20px;
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .footer-section h4 {
     color: #007bff;
-    margin-bottom: 10px;
 }
 
 .footer-section ul {
@@ -172,17 +149,16 @@ footer {
     padding: 0;
 }
 
-.footer-section ul li {
-    margin-bottom: 5px;
-}
-
 .footer-section a {
-    color: #fff;
+    color: white;
     text-decoration: none;
 }
 
-.footer-section a:hover {
-    text-decoration: underline;
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #555;
 }
 
 /* Responzivní design */
@@ -193,65 +169,16 @@ footer {
     }
 
     #main-menu li {
-        margin: 10px 0;
+        margin: 5px 0;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
     }
 
     .footer-section {
+        margin-bottom: 20px;
         text-align: center;
     }
-}
-
-/* Speciální styly pro podstránky */
-.gdpr-container {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.top-nav {
-    margin-bottom: 20px;
-}
-
-.back-button {
-    display: inline-block;
-    padding: 10px 15px;
-    background-color: #007bff;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-.back-button:hover {
-    background-color: #0056b3;
-}
-
-.gdpr-header h1 {
-    color: #007bff;
-    border-bottom: 2px solid #007bff;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-}
-
-.gdpr-content {
-    line-height: 1.8;
-}
-
-.gdpr-content h2 {
-    color: #007bff;
-    margin-top: 30px;
-}
-
-.gdpr-content ul {
-    padding-left: 20px;
-}
-
-.gdpr-footer {
-    margin-top: 40px;
-    text-align: center;
-    color: #666;
-    font-size: 0.9em;
-    border-top: 1px solid #ddd;
-    padding-top: 20px;
 }
