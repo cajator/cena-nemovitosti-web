@@ -1,163 +1,203 @@
-/* Globální styly */
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
+/* Základní reset a globální styly */
+* {
     margin: 0;
     padding: 0;
-    background-color: #f0f0f0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
 }
 
 .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: white;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-/* Hlavní menu */
-#main-menu {
-    background-color: #007bff;
-    padding: 10px 0;
-}
-
-#main-menu ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-}
-
-#main-menu li {
-    margin: 0 15px;
-}
-
-#main-menu a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-/* Hlavička */
-header {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-header h1 {
-    color: #007bff;
-    margin-bottom: 10px;
-}
-
-/* Formulář */
-#estimate-form {
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 5px;
-    margin-bottom: 30px;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-}
-
-select, input, button {
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-.gdpr-consent {
-    margin-bottom: 10px;
-}
-
-/* Sekce "Proč využít naše služby?" */
-#benefits {
-    margin-bottom: 30px;
-}
-
-#benefits ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-#benefits li {
-    margin-bottom: 10px;
-    padding-left: 25px;
-    position: relative;
-}
-
-#benefits li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    color: #007bff;
-}
-
-/* Reference */
-#references {
-    margin-bottom: 30px;
-}
-
-.reference {
-    background-color: #f9f9f9;
-    padding: 15px;
-    margin-bottom: 15px;
-    border-radius: 5px;
-}
-
-.reference blockquote {
-    font-style: italic;
-    margin: 0 0 10px 0;
-}
-
-/* Patička */
-footer {
-    background-color: #333;
-    color: white;
-    padding: 20px 0;
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-around;
-    max-width: 800px;
+    max-width: 1100px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-.footer-section h4 {
+/* Typografie */
+h1, h2, h3, h4 {
+    margin-bottom: 20px;
     color: #007bff;
 }
 
-.footer-section ul {
-    list-style-type: none;
+p {
+    margin-bottom: 15px;
+}
+
+/* Header a navigace */
+.site-header {
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+#main-menu ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+
+#main-menu a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+#main-menu a:hover {
+    color: #007bff;
+}
+
+/* Hero sekce */
+.hero {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    text-align: center;
+    padding: 80px 0;
+}
+
+.hero h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: white;
+}
+
+/* Formulářová sekce */
+.form-section {
+    background-color: white;
+    padding: 60px 0;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Sekce výhod */
+.benefits-section {
+    background-color: #f9f9f9;
+    padding: 60px 0;
+}
+
+.benefits-list {
+    list-style: none;
     padding: 0;
+}
+
+.benefits-list li {
+    margin-bottom: 15px;
+    padding-left: 30px;
+    position: relative;
+}
+
+.benefits-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #007bff;
+    font-weight: bold;
+}
+
+/* Sekce referencí */
+.references-section {
+    background-color: white;
+    padding: 60px 0;
+}
+
+.references-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.reference {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.reference blockquote {
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+.reference-author {
+    text-align: right;
+    font-weight: bold;
+}
+
+/* Footer */
+.site-footer {
+    background-color: #333;
+    color: white;
+    padding: 40px 0 20px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.footer-section h4 {
+    color: #007bff;
+    margin-bottom: 15px;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
 }
 
 .footer-section a {
     color: white;
     text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: #007bff;
 }
 
 .footer-bottom {
     text-align: center;
-    margin-top: 20px;
-    padding-top: 10px;
+    padding-top: 20px;
     border-top: 1px solid #555;
 }
 
@@ -169,16 +209,18 @@ footer {
     }
 
     #main-menu li {
-        margin: 5px 0;
+        margin-bottom: 10px;
+    }
+
+    .hero {
+        padding: 40px 0;
     }
 
     .footer-content {
         flex-direction: column;
-        align-items: center;
     }
 
     .footer-section {
-        margin-bottom: 20px;
-        text-align: center;
+        margin-bottom: 30px;
     }
 }
