@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const form = document.querySelector('form');
-    const formData = new FormData(form);
-    
+    const formContainer = document.getElementById('estimate-form');
+    const form = document.getElementById('property-form');
+    const successMessage = document.getElementById('success-message');
+
     if (form) {
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -14,9 +15,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 const formData = new FormData(form);
                 formData.append('recaptchaToken', recaptchaToken);
                 
+                const formObject = Object.fromEntries(formData);
+                
                 const response = await fetch('/.netlify/functions/sendEmail', {
                     method: 'POST',
-                    body: formData
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formObject)
                 });
 
                 if (!response.ok) {
@@ -25,6 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
 
                 const data = await response.json();
+
                 if (data.success) {
                     form.style.display = 'none';
                     successMessage.style.display = 'block';
@@ -40,19 +47,3 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Form element not found');
     }
 });
-
-window.addEventListener('scroll', reveal);
-
-function reveal() {
-    var reveals = document.querySelectorAll('.reveal');
-    
-    for(var i = 0; i < reveals.length; i++) {
-        var windowHeight = window.innerHeight;
-        var revealTop = reveals[i].getBoundingClientRect().top;
-        var revealPoint = 150;
-        
-        if(revealTop < windowHeight - revealPoint) {
-            reveals[i].classList.add('active');
-        }
-    }
-}
