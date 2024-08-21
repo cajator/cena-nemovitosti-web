@@ -3,21 +3,19 @@ const https = require('https');
 
 exports.handler = async (event, context) => {
   console.log('Funkce sendEmail byla vyvolána');
-
   if (event.httpMethod !== 'POST') {
     console.log('Neplatná HTTP metoda');
     return { statusCode: 405, body: JSON.stringify({ error: 'Method Not Allowed' }) };
   }
 
   try {
-    const { name, email, phone, propertyType, location, recaptchaToken } = JSON.parse(event.body);
-    console.log('Data přijata:', { name, email, phone, propertyType, location });
+    const data = JSON.parse(event.body);
+    console.log('Data přijata:', data);
 
     // Ověření reCAPTCHA
     console.log('Začíná ověření reCAPTCHA');
-    const recaptchaVerify = await verifyRecaptcha(recaptchaToken);
+    const recaptchaVerify = await verifyRecaptcha(data.recaptchaToken);
     console.log('Výsledek ověření reCAPTCHA:', recaptchaVerify);
-
     if (!recaptchaVerify.success) {
       console.error('reCAPTCHA verification failed');
       return {
@@ -40,7 +38,12 @@ exports.handler = async (event, context) => {
       from: process.env.GMAIL_USER,
       to: process.env.GMAIL_USER,
       subject: 'Nový odhad nemovitosti',
-      text: `Jméno: ${name}\nEmail: ${email}\nTelefon: ${phone}\nTyp nemovitosti: ${propertyType}\nLokalita: ${location}`
+      text: `
+        Typ nemovitosti: ${data['property-type'] || 'Neuvedeno'}
+        Velikost: ${data['property-size'] || 'Neuvedeno'} m²
+        Lokalita: ${data['property-location'] || 'Neuvedeno'}
+        E-mail: ${data['user-email'] || 'Neuvedeno'}
+      `
     });
 
     console.log('E-mail odeslán úspěšně');
