@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const formContainer = document.getElementById('estimate-form');
     const form = document.getElementById('property-form');
     const successMessage = document.getElementById('success-message');
 
@@ -17,6 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 const formObject = Object.fromEntries(formData);
                 
+                console.log('Odesílaná data:', formObject); // Pro debugování
+
                 const response = await fetch('/.netlify/functions/sendEmail', {
                     method: 'POST',
                     headers: {
